@@ -5,7 +5,5 @@ The APIs are very loosely coupled and it would be quite easy to change e.g. the 
 
 The project uses **spring-data** as a persistence layer for all the "services". It also takes advantage of **ObjectMapper** to reduce the boilerplate needed.
 
-Following figure demonstrates the isolation by trying to use *ItemEntity* (internal to *item* module) in the *order* module:
-![modules](doc/module-access.jpg)
-
+## Package and upload
 If you want to package the module and upload to nexus repo, please cd "./" and run "gradle upload".
