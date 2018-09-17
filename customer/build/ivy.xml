@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
+  <info organisation="cz.zubal" module="customer" revision="0.2" status="integration" publication="20180917145707"/>
+  <configurations>
+    <conf name="annotationProcessor" visibility="private"/>
+    <conf name="apiElements" visibility="private" extends="runtime"/>
+    <conf name="archives" visibility="public"/>
+    <conf name="compile" visibility="private"/>
+    <conf name="compileClasspath" visibility="private" extends="compileOnly,implementation"/>
+    <conf name="compileOnly" visibility="private"/>
+    <conf name="default" visibility="public" extends="runtimeElements"/>
+    <conf name="implementation" visibility="private" extends="compile"/>
+    <conf name="kapt" visibility="public"/>
+    <conf name="kaptTest" visibility="public" extends="kapt"/>
+    <conf name="runtime" visibility="private" extends="compile"/>
+    <conf name="runtimeClasspath" visibility="private" extends="implementation,runtime,runtimeOnly"/>
+    <conf name="runtimeElements" visibility="private" extends="implementation,runtime,runtimeOnly"/>
+    <conf name="runtimeOnly" visibility="private"/>
+    <conf name="testAnnotationProcessor" visibility="private"/>
+    <conf name="testCompile" visibility="private" extends="compile"/>
+    <conf name="testCompileClasspath" visibility="private" extends="testCompileOnly,testImplementation"/>
+    <conf name="testCompileOnly" visibility="private"/>
+    <conf name="testImplementation" visibility="private" extends="implementation,testCompile"/>
+    <conf name="testRuntime" visibility="private" extends="runtime,testCompile"/>
+    <conf name="testRuntimeClasspath" visibility="private" extends="testImplementation,testRuntime,testRuntimeOnly"/>
+    <conf name="testRuntimeOnly" visibility="private" extends="runtimeOnly"/>
+  </configurations>
+  <publications>
+    <artifact name="customer" type="jar" ext="jar" conf="apiElements,archives,runtime,runtimeElements"/>
+  </publications>
+  <dependencies>
+    <dependency org="org.springframework.boot" name="spring-boot-starter-data-jpa" rev="" conf="compile-&gt;default">
+      <exclude org="org.apache.tomcat" module="tomcat-annotations-api"/>
+    </dependency>
+    <dependency org="org.springframework.boot" name="spring-boot-starter-web" rev="" conf="compile-&gt;default">
+      <exclude org="org.apache.tomcat" module="tomcat-annotations-api"/>
+    </dependency>
+    <dependency org="com.fasterxml.jackson.module" name="jackson-module-kotlin" rev="" conf="compile-&gt;default">
+      <exclude org="org.apache.tomcat" module="tomcat-annotations-api"/>
+    </dependency>
+    <dependency org="org.jetbrains.kotlin" name="kotlin-stdlib-jdk8" rev="1.2.41" conf="compile-&gt;default">
+      <exclude org="org.apache.tomcat" module="tomcat-annotations-api"/>
+    </dependency>
+    <dependency org="org.jetbrains.kotlin" name="kotlin-reflect" rev="1.2.41" conf="compile-&gt;default">
+      <exclude org="org.apache.tomcat" module="tomcat-annotations-api"/>
+    </dependency>
+    <dependency org="org.modelmapper" name="modelmapper" rev="1.1.2" conf="compile-&gt;default">
+      <exclude org="org.apache.tomcat" module="tomcat-annotations-api"/>
+    </dependency>
+    <dependency org="cz.zubal" name="customer" rev="0.1" conf="compile-&gt;default">
+      <exclude org="org.apache.tomcat" module="tomcat-annotations-api"/>
+    </dependency>
+    <dependency org="cz.zubal" name="item" rev="0.1" conf="compile-&gt;default">
+      <exclude org="org.apache.tomcat" module="tomcat-annotations-api"/>
+    </dependency>
+    <dependency org="cz.zubal" name="order" rev="0.1" conf="compile-&gt;default">
+      <exclude org="org.apache.tomcat" module="tomcat-annotations-api"/>
+    </dependency>
+    <dependency org="org.jetbrains.kotlin" name="kotlin-annotation-processing-gradle" rev="1.2.41" conf="kapt-&gt;default"/>
+    <dependency org="org.springframework.boot" name="spring-boot-devtools" rev="" conf="runtime-&gt;default"/>
+    <dependency org="com.h2database" name="h2" rev="1.4.196" conf="testCompile-&gt;default"/>
+    <dependency org="org.springframework.boot" name="spring-boot-starter-test" rev="" conf="testCompile-&gt;default"/>
+  </dependencies>
+</ivy-module>
