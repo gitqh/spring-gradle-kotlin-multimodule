@@ -7,3 +7,5 @@ The project uses **spring-data** as a persistence layer for all the "services". 
 
 Following figure demonstrates the isolation by trying to use *ItemEntity* (internal to *item* module) in the *order* module:
 ![modules](doc/module-access.jpg)
+
+If you want to package the module and upload to nexus repo, please cd "./" and run "gradle upload".

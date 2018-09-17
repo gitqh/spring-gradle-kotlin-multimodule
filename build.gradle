@@ -59,14 +59,17 @@ allprojects {
     runtime('org.springframework.boot:spring-boot-devtools')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
-      compile('cz.zubal:customer:0.1')
-      compile('cz.zubal:item:0.1')
-      compile('cz.zubal:order:0.1')
+    // compile with local module
+    //  compile project(':customer')
+    //  compile project(':item')
+    //  compile project(':order')
+    compile('cz.zubal:customer:0.2')
+    compile('cz.zubal:item:0.2')
+    compile('cz.zubal:order:0.2')
   }
 
     uploadArchives {
         repositories.mavenDeployer {
-            def nexusUrl ="http://localhost:8081/nexus"
             repository(url: "${nexusUrl}/content/repositories/releases") {
                 authentication(userName: nexusUsername, password: nexusPassword)
             }
@@ -79,12 +82,6 @@ allprojects {
         }
     }
 }
-
-//dependencies {
-//  compile project(':customer')
-//  compile project(':item')
-//  compile project(':order')
-//}
 
 
 
